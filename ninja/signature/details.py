@@ -59,6 +59,10 @@ class ViewSignature:
                 # so that users can ignore passing request if not needed
                 continue
 
+            if name.startswith("_"):
+                # for dependency injection purposes
+                continue
+
             if arg.kind == arg.VAR_KEYWORD:
                 # Skipping **kwargs
                 self.has_kwargs = True
